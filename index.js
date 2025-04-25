@@ -20,16 +20,16 @@ async function sendDailyReport() {
   }
 }
 
-// Schedule the job to run daily at 9:00 AM in the specified timezone
-cron.schedule('0 9 * * *', sendDailyReport, {
-  scheduled: true,
-  timezone: config.timezone
-});
-
-console.log(`Stripe Daily Slack Reporter started. Scheduled to run daily at 9:00 AM ${config.timezone}.`);
-
-// Run immediately if requested via command line flag
 if (process.argv.includes('--run-now')) {
+  // Run immediately if requested via command line flag
   console.log('Running metrics report immediately...');
   sendDailyReport();
+} else {
+  // Schedule the job to run daily at 9:00 AM in the specified timezone
+  cron.schedule('0 9 * * *', sendDailyReport, {
+    scheduled: true,
+    timezone: config.timezone
+  });
+
+  console.log(`Stripe Daily Slack Reporter started. Scheduled to run daily at 9:00 AM ${config.timezone}.`);
 }
