@@ -56,16 +56,16 @@ TIMEZONE=America/New_York
 ### Creating a Slack Bot and Getting Tokens
 
 1. Go to [Slack API](https://api.slack.com/apps)
-2. Click "Create New App" and select "From scratch"
-3. Give your app a name and select your workspace
-4. Under "Add features and functionality", select "Bots"
-5. Click "Add a Bot User" and configure the bot
-6. Navigate to "OAuth & Permissions" and add the following scopes:
+1. Click "Create New App" and select "From scratch"
+1. Give your app a name and select your workspace
+1. Navigate to "OAuth & Permissions" and add the following scopes:
    - `chat:write`
    - `channels:read`
-7. Install the app to your workspace
-8. Copy the "Bot User OAuth Token" that starts with `xoxb-`
-9. Find your channel ID by right-clicking on the channel in Slack and selecting "Copy Link"
+1. Install the app to your workspace
+1. Copy the "Bot User OAuth Token" that starts with `xoxb-`
+1. Find your channel ID by right-clicking on the channel in Slack and selecting "Copy Link"
+
+Note: For private channels, you need to add the bot to the channel first using `/invite @your-bot-name`.
 
 ## Usage
 
@@ -85,7 +85,9 @@ node index.js --run-now
 
 ## Deployment
 
-For production use, consider using a process manager like PM2:
+For production use, this repo is setup with a GitHub Actions workflow that runs daily at 9:00 AM. You simply need to configure the `STRIPE_API_KEY` and `SLACK_BOT_TOKEN` secrets, and `SLACK_CHANNEL_ID` variable.
+
+Alternatively, you can consider using a process manager like PM2:
 
 ```bash
 npm install -g pm2
