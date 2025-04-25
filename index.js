@@ -10,7 +10,7 @@ async function sendDailyReport() {
   try {
     // Get metrics from Stripe
     const metrics = await stripeService.getDailyMetrics();
-    console.log('Retrieved Stripe metrics:', JSON.stringify(metrics, null, 2));
+    console.log('Retrieved Stripe metrics');
 
     // Send metrics to Slack
     await slackService.sendMetricsReport(metrics);
