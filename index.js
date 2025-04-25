@@ -17,6 +17,7 @@ async function sendDailyReport() {
     console.log('Daily Stripe metrics report completed successfully');
   } catch (error) {
     console.error('Error in daily Stripe metrics report:', error);
+    process.exit(1); // Exit with non-zero status code on error
   }
 }
 
