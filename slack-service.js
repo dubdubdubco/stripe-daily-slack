@@ -45,7 +45,7 @@ class SlackService {
               },
               {
                 type: 'mrkdwn',
-                text: `*Churn Rate:*\n${formattedChurnRate}%`
+                text: `*MRR Growth Rate:*\n${metrics.mrrGrowthRate.toFixed(2)}%`
               }
             ]
           },
@@ -54,7 +54,11 @@ class SlackService {
             fields: [
               {
                 type: 'mrkdwn',
-                text: `*New Customers This Month:*\n${metrics.newCustomers}`
+                text: `*New Customers (this month):*\n${metrics.newCustomers}`
+              },
+              {
+                type: 'mrkdwn',
+                text: `*Churn Rate (subscribers):*\n${formattedChurnRate}%`
               }
             ]
           },
