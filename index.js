@@ -21,7 +21,10 @@ async function sendDailyReport() {
   }
 }
 
-if (process.argv.includes('--run-now')) {
+if (process.argv.includes('--debug')) {
+  const metrics = await stripeService.getDailyMetrics();
+  console.log('Retrieved Stripe metrics', metrics);
+} else if (process.argv.includes('--run-now')) {
   // Run immediately if requested via command line flag
   console.log('Running metrics report immediately...');
   sendDailyReport();
