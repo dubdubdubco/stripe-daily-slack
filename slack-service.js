@@ -1,5 +1,5 @@
-const { WebClient } = require('@slack/web-api');
-const config = require('./config');
+import { WebClient } from '@slack/web-api';
+import config from './config.js';
 
 class SlackService {
   constructor() {
@@ -80,4 +80,4 @@ class SlackService {
   }
 }
 
-module.exports = new SlackService();
+export default new SlackService();

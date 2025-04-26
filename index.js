@@ -1,7 +1,7 @@
-const cron = require('node-cron');
-const stripeService = require('./stripe-service');
-const slackService = require('./slack-service');
-const config = require('./config');
+import cron from 'node-cron';
+import stripeService from './stripe-service.js';
+import slackService from './slack-service.js';
+import config from './config.js';
 
 // Function to fetch Stripe metrics and send them to Slack
 async function sendDailyReport() {

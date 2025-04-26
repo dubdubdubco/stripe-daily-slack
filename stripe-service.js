@@ -1,5 +1,5 @@
-const Stripe = require('stripe');
-const config = require('./config');
+import Stripe from 'stripe';
+import config from './config.js';
 
 class StripeService {
   constructor() {
@@ -136,4 +136,4 @@ class StripeService {
   }
 }
 
-module.exports = new StripeService();
+export default new StripeService();
